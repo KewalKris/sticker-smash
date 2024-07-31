@@ -21,8 +21,9 @@ export default function App() {
     if (!result.canceled) {
       console.log(result);
       setSelectedImage(result.assets[0]);
+      setShowAppOptions(true);
     } else {
-      alert("You did not select any image")
+      alert("You did not select any image");
     }
   }
 
@@ -31,10 +32,14 @@ export default function App() {
       <View style={styles.imageContainer}>
         <ImageViewer placeholderImageSource={PlaceholderImage} selectedImage={selectedImage} />
       </View>
-      <View style={styles.footerContainer}>
-        <Button theme={"primary"} label={"Choose a photo"} onPress={pickImageAsyc} />
-        <Button label={"Use this photo"} />
-      </View>
+      { showAppOptions ? (
+        <View />
+      ) : (
+        <View style={styles.footerContainer}>
+          <Button theme={"primary"} label={"Choose a photo"} onPress={pickImageAsyc} />
+          <Button label={"Use this photo"} onPress={ () => showAppOptions(true)} />
+        </View>
+      ) }
       <StatusBar style="auto" />
     </View>
   );
