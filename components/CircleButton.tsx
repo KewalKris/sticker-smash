@@ -4,7 +4,7 @@ import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 export default function CircleButton({ onPress }) {
     return(
         <View style={styles.circleButtonContainer}>
-            <Pressable onPress={onPress}>
+            <Pressable onPress={onPress} style={styles.circleButton}>
                 <MaterialIcons name="add" size={38} color="#25292e" />
             </Pressable>
         </View>
@@ -19,6 +19,13 @@ const styles = StyleSheet.create({
         borderWidth: 4,
         borderColor: '#ffd33d',
         borderRadius: 42,
-        padding: 3,
+        padding: 3
+    },
+    circleButton: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 42,
+        backgroundColor: '#fff'
     }
 })
